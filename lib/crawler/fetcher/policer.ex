@@ -56,7 +56,6 @@ defmodule Crawler.Fetcher.Policer do
   def police(opts) do
     with {_, true} <- within_fetch_depth?(opts),
          {_, true} <- acceptable_uri_scheme?(opts),
-         {_, true} <- not_fetched_yet?(opts),
          {_, true} <- perform_url_filtering(opts) do
       {:ok, opts}
     else
